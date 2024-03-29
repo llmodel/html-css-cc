@@ -1,3 +1,4 @@
+/* css resetting: reset default browser styles */
 body, ul, li, h1, h2, a{
   margin: 0;
   padding: 0;
@@ -63,11 +64,22 @@ nav li a{
   text-decoration: none;
   color: #4B4B4B;
 }
+/* pseudo class for hover - add underline during hover */
 nav li a:hover{
   text-decoration: underline;
+  /*  Possible to do more with pseudo classes
+  background: pink;
+  padding: 3px; 
+  */
 }
+/* psudo class for first-child - make the first item bold */
+nav li:first-child{
+  font-weight: bold;
+}
+
 nav li a.join{
   color: #F63232;
+  
 }
 main{
   max-width: 100%;
@@ -84,6 +96,7 @@ article p{
   line-height: 2em;
   color: #4B4B4B;
 }
+/* pseudo element for first-line - make the first letter bold */
 article p::first-line{
   font-weight: bold;
   font-size: 1.2em;
@@ -100,6 +113,7 @@ article p::first-line{
   margin: 20px 5%;
   position: relative;
 }
+/* pseudo class for hover - nudge the image up a bit */
 .images li:hover{
   top: -4px;
 }
@@ -115,6 +129,17 @@ section.join{
 section.join h2{
   font-size: 36px;
 }
+
+/* pseudo element for first-letter - make the first letter big */
+section.join p::first-letter{
+  font-size: 1.5em;
+}
+/* pseudo element for selection - highlight text when selected */
+section.join p::selection{
+  background: #6f6e6e;
+  color: white;
+}
+
 form input{
   margin: 20px 0;
   padding: 10px 20px;
@@ -122,13 +147,16 @@ form input{
   border-radius: 28px;
   border: 4px solid white;
 }
+/* pseudo class for focus - add a dashed border when in focus */
 form input:focus{
   border: 4px dashed #4B4B4B;
   outline: none;
 }
+/* pseudo class for valid - change border color when valid input was typed */
 form input:valid{
   border: 4px solid #71d300;
 }
+
 footer{
   background: #F63232;
   color: white;
@@ -137,13 +165,13 @@ footer{
 }
 
 /* responsive styles */
+/* Mobile First - minimalist styles should be considered! (not now) */
 
+/* Media queries */
 @media screen and (max-width: 1400px){
-
   .banner .welcome{
     font-size: 40px;
   }
-
 }
 
 @media screen and (max-width: 960px){
@@ -158,25 +186,28 @@ footer{
 }
 
 @media screen and (max-width: 700px){
-
+  /* position: relative -> make the element go below the bannerimage */
   .banner .welcome{
     font-size: 20px;
     position: relative;
     text-align: center;
   }
+  /* display: none -> don't need line break anymore  */
   .banner .welcome br{
     display: none;
   }
+  /* font-size -> make the font size uniform on one line */
   .banner .welcome span{
     font-size: 1em;
   }
   nav li{
     font-size: 18px;
   }
+  /* display: block -> image to stack on top of each other */
   .images li{
     width: 100%;
     display: block;
-    margin: 20px auto;
+    margin: 20px auto; /* center the image */
   }
 
 }
@@ -202,6 +233,7 @@ footer{
   article h2{
     font-size: 36px;
   }
+  /* position: relative -> make the element go below the bannerimage  with no gap*/
   header, nav{
     position: relative;
     top: 0;
